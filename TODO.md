@@ -1,9 +1,9 @@
 # This is my small todo list for this app
 
 [] add routes
-  - [] homepage route
-  - [] login route
-  - [] registration route
+  - [x] homepage route
+  - [x] login route
+  - [x] registration route
 [] add registration
   - [] send request to API
   - [] save user to localStorage
