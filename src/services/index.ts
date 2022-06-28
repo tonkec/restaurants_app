@@ -6,9 +6,14 @@ export const setUserInLocalStorageWithResponseData = (response: any) => {
   return true;
 };
 
-export const getUserFromLocalStorage = () => ({
-  loginToken: JSON.parse(localStorage.getItem("userLoginToken") || "") 
-});
+export const getUserFromLocalStorage = () => {
+  const token = localStorage.getItem("userLoginToken");
+  if (token) {
+    return {loginToken: token}
+  }
+
+  return null
+};
 
 export const setUserInLocalStorage = (loginToken: string, user: any) => {
   localStorage.setItem("userLoginToken", JSON.stringify(loginToken));
