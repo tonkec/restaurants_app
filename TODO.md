@@ -11,9 +11,10 @@
     - [] redirect user to the homepage
   - [x] if error
     - [] render the same form
-[] add tailwind
 [] add log in
   - [x] send request to API
   - [] redirect after success
   - [x] show error message on error
 [] use user model
+[] add tailwind
+[x] create one AuthComponent

@@ -9,7 +9,7 @@ export const setUserInLocalStorageWithResponseData = (response: any) => {
 export const getUserFromLocalStorage = () => {
   const token = localStorage.getItem("userLoginToken");
   if (token) {
-    return {loginToken: token}
+    return { loginToken: token }
   }
 
   return null
