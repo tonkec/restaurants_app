@@ -8,12 +8,21 @@ export interface Restaurant {
     logo: string;
     phone_number: string;
     address: string;
-	hours: Record<Day, {
-        opens_at: string;
-        closes_at: string;
-        is_closed: boolean;
-    }>;
-   
+    hours: Record<
+        Day,
+        {
+            opens_at: string;
+            closes_at: string;
+            is_closed: boolean;
+        }
+    >;
 }
 
-type Day = "monday" | "tuesday" | "wednesday" | "thursday" | "friday" | "saturday" | "sunday";
+type Day =
+    | 'monday'
+    | 'tuesday'
+    | 'wednesday'
+    | 'thursday'
+    | 'friday'
+    | 'saturday'
+    | 'sunday';
