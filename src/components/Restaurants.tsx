@@ -1,4 +1,4 @@
-import { getAllRestaurants } from '../api/users/restaurants';
+import { getAllRestaurants } from '../api/restaurants/restaurants';
 import { useEffect, useState } from 'react';
 import Restaurant from './Restaurant';
 import { RestaurantModel } from '../models/Restaurant';
