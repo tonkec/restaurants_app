@@ -1,6 +1,6 @@
 import { FormEvent, useState, ChangeEvent } from 'react';
-import { setUserInLocalStorageWithResponseData } from './../services';
-import { loginUser, createNewUser } from './../api/users/authentication';
+import { setUserInLocalStorageWithResponseData } from '../../services';
+import { loginUser, createNewUser } from '../../api/users/authentication';
 import { useNavigate } from 'react-router-dom';
 
 interface FormProps {

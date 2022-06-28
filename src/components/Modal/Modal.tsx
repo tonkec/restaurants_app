@@ -1,4 +1,4 @@
-import { RestaurantModel } from '../models/Restaurant';
+import { RestaurantModel } from '../../models/Restaurant';
 
 interface ModalProps {
     isModalShown: boolean;

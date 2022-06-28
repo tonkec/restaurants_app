@@ -1,6 +1,6 @@
 import { Link } from 'react-router-dom';
-import Restaurants from './Restaurants';
-import { getUserFromLocalStorage } from '../services';
+import Restaurants from '../Restaurants/Restaurants';
+import { getUserFromLocalStorage } from '../../services';
 const Homepage = () => {
     const userFromLocalStorage = getUserFromLocalStorage();
     console.log(userFromLocalStorage);
@@ -16,7 +16,6 @@ export default Homepage;
 
 const NavigationLinks = () => (
     <>
-        {console.log('nav links')}
         <Link to="/login">Login</Link>
         <Link to="/signup">Signup</Link>
     </>

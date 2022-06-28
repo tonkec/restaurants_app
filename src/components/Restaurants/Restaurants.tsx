@@ -1,8 +1,8 @@
-import { getAllRestaurants } from '../api/restaurants/restaurants';
+import { getAllRestaurants } from '../../api/restaurants/restaurants';
 import { useEffect, useState } from 'react';
 import Restaurant from './Restaurant';
-import { RestaurantModel } from '../models/Restaurant';
-import Modal from './Modal';
+import { RestaurantModel } from '../../models/Restaurant';
+import Modal from '../Modal/Modal';
 const Restaurants = () => {
     const [restaurants, setRestaurants] = useState<RestaurantModel[]>([]);
     const [isModalShown, setIsModalShown] = useState(false);
