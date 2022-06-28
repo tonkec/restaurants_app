@@ -17,7 +17,6 @@ export const getUserFromLocalStorage = () => {
 
 export const setUserInLocalStorage = (loginToken: string, user: any) => {
   localStorage.setItem("userLoginToken", JSON.stringify(loginToken));
-  localStorage.setItem("isAdmin", JSON.stringify(user.isAdmin));
 };
 
 export const clearLocalStorage = () => {

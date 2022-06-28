@@ -1,12 +1,14 @@
 import {FormEvent, useState, ChangeEvent} from "react";
 import { setUserInLocalStorageWithResponseData } from "./../services";
 import { loginUser, createNewUser } from "./../api/users/authentication";
+import {useNavigate} from "react-router-dom";
 
 interface FormProps {
     url: string
 }
 
 const Form: React.FC<FormProps> = (props: FormProps) => {
+    const navigate = useNavigate();
     const { url } = props;
     const [error, setError] = useState(null);
     const [email, setEmail] = useState("");
@@ -24,14 +26,14 @@ const Form: React.FC<FormProps> = (props: FormProps) => {
         let response;
         try {  
             if (url === "/login") {
-                response = await loginUser(email, password);
+                response = await loginUser({email, password});
             }
 
             if (url === "/signup") {
                response = await createNewUser({email, password});
             } 
             setUserInLocalStorageWithResponseData(response);
-            // redirect to homepage
+            navigate("/")
             
         } catch(err: any) {
            setError(err.error)
