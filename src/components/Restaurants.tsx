@@ -1,8 +1,12 @@
 import { getAllRestaurants } from '../api/users/restaurants';
 import { useEffect, useState } from 'react';
-import { Restaurant } from '../models/Restaurant';
+import Restaurant from './Restaurant';
+import { RestaurantModel } from '../models/Restaurant';
+import Modal from './Modal';
 const Restaurants = () => {
-    const [restaurants, setRestaurants] = useState<Restaurant[]>([]);
+    const [restaurants, setRestaurants] = useState<RestaurantModel[]>([]);
+    const [isModalShown, setIsModalShown] = useState(false);
+    const [modalData, setModalData] = useState<any | null>(null);
 
     useEffect(() => {
         const getAllRestaurantsFromApi = async () => {
@@ -11,11 +15,28 @@ const Restaurants = () => {
         };
         getAllRestaurantsFromApi();
     }, [setRestaurants]);
+
+    const modalClose = () => setIsModalShown(false);
+
     return (
         <>
             {restaurants.map(restaurant => (
-                <div key={restaurant.uid}> {restaurant.name}</div>
+                <Restaurant
+                    key={restaurant.uid}
+                    name={restaurant.name}
+                    logo={restaurant.logo}
+                    onClick={() => {
+                        setModalData(restaurant);
+                        setIsModalShown(true);
+                    }}
+                />
             ))}
+
+            <Modal
+                isModalShown={isModalShown}
+                data={modalData}
+                close={modalClose}
+            />
         </>
     );
 };
