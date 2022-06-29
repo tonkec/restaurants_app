@@ -28,3 +28,4 @@
 -   [x] truncate description
 -   [] openning hours
 -   [x] refactor routes
+-   [] do I need to check localstorage in Homepage.tsx
