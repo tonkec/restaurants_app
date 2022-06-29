@@ -17,6 +17,8 @@ This is a fake app made as a test project for one company I really like :)
 3. [fake auth api](https://reqres.in/)
 4. [tailwind](https://tailwindcss.com/)
 5. typescript
+6. netlify
+7. create react app
 
 ### How did I manage the tasks?
 

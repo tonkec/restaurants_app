@@ -28,4 +28,5 @@
 -   [x] truncate description
 -   [] openning hours
 -   [x] refactor routes
--   [] do I need to check localstorage in Homepage.tsx
+-   [x] do I need to check localstorage in Homepage.tsx
+-   [] page dissappears on referesh on netlify
