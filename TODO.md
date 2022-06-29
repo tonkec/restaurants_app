@@ -19,4 +19,5 @@
         [] add tailwind
         [x] create one AuthComponent
         [x] show list of restaurants
-        [] modal with filters
+        [x] modal
+-   [] filters
