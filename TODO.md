@@ -17,13 +17,14 @@
 -   [x] redirect after success
 -   [x] show error message on error
         [x] use user model
-        [] add tailwind
+        [x] add tailwind
         [x] create one AuthComponent
         [x] show list of restaurants
         [x] modal
 -   [x] filters
 -   [x] validations in the Form.tsx
--   [] refactor Restaurants component
--   [] log out
--   [] truncate description
+-   [x] refactor Restaurants component
+-   [x] log out
+-   [x] truncate description
 -   [] openning hours
+-   [x] refactor routes

@@ -46,12 +46,6 @@ const Login = () => {
         }
     };
 
-    useEffect(() => {
-        const user = getUserFromLocalStorage();
-        if (user) {
-            navigate('/');
-        }
-    });
     return (
         <div className="relative top-1/2 -translate-y-1/2">
             {error && (
