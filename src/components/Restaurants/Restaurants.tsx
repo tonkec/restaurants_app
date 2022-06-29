@@ -1,27 +1,35 @@
 import { getAllRestaurants } from '../../api/restaurants/restaurants';
-import { useEffect, useState, useMemo } from 'react';
+import { useEffect, useState } from 'react';
 import Restaurant from './Restaurant';
 import { RestaurantModel } from '../../models/Restaurant';
 import Modal from '../Modal/Modal';
-import _ from 'lodash';
 import Select from 'react-select';
+
+interface Option {
+    value: string;
+    label: string;
+}
 
 const Restaurants = () => {
     const [restaurants, setRestaurants] = useState<RestaurantModel[]>([]);
     const [isModalShown, setIsModalShown] = useState(false);
     const [modalData, setModalData] = useState<any | null>(null);
-    const [selectedOption, setSelectedOption] = useState(null);
-    const [filteredRestaurants, setFilteredRestaurants] = useState<
-        RestaurantModel[]
-    >([]);
+    const [selectedOption, setSelectedOption] = useState<Option | null>(null);
 
-    const restaurantsByType = useMemo(
-        () => _.groupBy(restaurants, 'type'),
-        [restaurants]
-    );
-    const allKeys = Object.keys(restaurantsByType);
-    const options: any = [];
-    allKeys.forEach(key => options.push({ value: key, label: key }));
+    const options: Option[] = [
+        // unique array of restaurant types
+        ...new Set(restaurants.map(restaurant => restaurant.type)),
+    ].map(restaurantType => ({
+        label: restaurantType,
+        value: restaurantType,
+    }));
+
+    const filteredRestaurants =
+        selectedOption !== null
+            ? restaurants.filter(
+                  restaurant => restaurant.type === selectedOption.value
+              )
+            : [];
 
     useEffect(() => {
         const getAllRestaurantsFromApi = async () => {
@@ -35,11 +43,6 @@ const Restaurants = () => {
 
     const onSelectChange = (option: any) => {
         setSelectedOption(option);
-        const filteredRestaurants = restaurants.filter(
-            restaurant => restaurant.type === option.value
-        );
-
-        setFilteredRestaurants(filteredRestaurants);
     };
 
     const renderRestaurants = (restaurants: RestaurantModel[]) =>
@@ -57,13 +60,16 @@ const Restaurants = () => {
             />
         ));
 
-    const handleClear = () => setFilteredRestaurants([]);
+    const handleClear = () => {
+        setSelectedOption(null);
+    };
+
     return (
         <>
             <Select
                 options={options}
                 onChange={onSelectChange}
-                defaultValue={selectedOption}
+                value={selectedOption}
             />
             <button
                 onClick={handleClear}
@@ -72,16 +78,15 @@ const Restaurants = () => {
                 Reset selection
             </button>
 
-            <div className="">
-                {filteredRestaurants.length > 0
-                    ? renderRestaurants(filteredRestaurants)
-                    : renderRestaurants(restaurants)}
-                <Modal
-                    isModalShown={isModalShown}
-                    data={modalData}
-                    close={modalClose}
-                />
-            </div>
+            {selectedOption !== null
+                ? renderRestaurants(filteredRestaurants)
+                : renderRestaurants(restaurants)}
+
+            <Modal
+                isModalShown={isModalShown}
+                data={modalData}
+                close={modalClose}
+            />
         </>
     );
 };
