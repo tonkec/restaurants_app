@@ -65,7 +65,7 @@ const Register = () => {
 
                 <p className="mt-2">
                     You can register with email: <b>eve.holt@reqres.in </b>
-                    and passowrd: <b>cityslicka</b>
+                    and password: <b>cityslicka</b>
                 </p>
                 <input
                     type="submit"

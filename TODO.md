@@ -30,3 +30,5 @@
 -   [x] refactor routes
 -   [x] do I need to check localstorage in Homepage.tsx
 -   [] page dissappears on referesh on netlify
+-   [] fix all imports - Friday
+-   [] height of HTML&Body

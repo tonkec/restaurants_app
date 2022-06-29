@@ -63,7 +63,7 @@ const Login = () => {
                 />
                 <p className="mt-2">
                     You can login with email: <b>eve.holt@reqres.in </b>
-                    and passowrd: <b>pistol</b>
+                    and password: <b>pistol</b>
                 </p>
 
                 <input
