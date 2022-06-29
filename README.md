@@ -1,46 +1,45 @@
-# Getting Started with Create React App
+# Fake app for fetching restaurants
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a fake app made as a test project for one company I really like :)
 
-## Available Scripts
+### How to start this app?
 
-In the project directory, you can run:
+1. clone the repo
+2. cd into the project
+3. run `npm install`
+4. run `npm start`
+5. go to `localhost`
 
-### `npm start`
+### What technologies are used in this app?
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+1. React
+2. [random api](https://random-data-api.com/api/restaurant/random_restaurant?size=30)
+3. [fake auth api](https://reqres.in/)
+4. [tailwind](https://tailwindcss.com/)
+5. typescript
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+### How did I manage the tasks?
 
-### `npm test`
+I just had a small todo list [here](https://github.com/tonkec/restaurants_app/blob/master/TODO.md). In real life I would use Jira, Asana or smth similar.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+### What am I proud of in this app?
 
-### `npm run build`
+I like how I handled the loading of [Restaurants](https://github.com/tonkec/restaurants_app/blob/master/src/components/Restaurants/Restaurants.tsx). I think it is pretty neat and clean. What do you think?
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+I also like my design even though I don't like boxy layouts. LOL.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+### What could have I done better?
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+I probably should have used Firebase, but I just did not have enough time to implement the whole database. The other thing is that in real life I would rather code mini Rails app with API RESTful routes.
 
-### `npm run eject`
+This app should be probably tested as well. LOL. 😀
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+### What am I going to use this app for?
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+I am going to use this app for practising. I think I can learn a lot about React with this app.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### What is the next step, Antonija?
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+I would love to explore React query and implement it. It should be fun. I heard only good stuff about it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+### Thanks for reading!
