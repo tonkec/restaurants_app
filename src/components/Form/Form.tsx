@@ -52,6 +52,10 @@ const Form: React.FC<FormProps> = (props: FormProps) => {
             navigate('/');
         }
     });
+
+    useEffect(() => {
+        setError(null);
+    }, [url]);
     return (
         <div className="relative top-1/2 -translate-y-1/2">
             {error && (
