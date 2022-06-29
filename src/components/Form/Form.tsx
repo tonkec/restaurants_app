@@ -6,6 +6,7 @@ import {
 import { loginUser, createNewUser } from '../../api/users/authentication';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
+import { AxiosError } from 'axios';
 interface FormProps {
     url: string;
 }
@@ -13,7 +14,7 @@ interface FormProps {
 const Form: React.FC<FormProps> = (props: FormProps) => {
     const navigate = useNavigate();
     const { url } = props;
-    const [error, setError] = useState<any | null>(null);
+    const [error, setError] = useState<string | null>(null);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const onEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -36,10 +37,19 @@ const Form: React.FC<FormProps> = (props: FormProps) => {
                 if (url === '/signup') {
                     response = await createNewUser({ email, password });
                 }
-                setUserInLocalStorageWithResponseData(response);
-                navigate('/');
-            } catch (err: any) {
-                setError(err.response.data.error);
+
+                if (response) {
+                    setUserInLocalStorageWithResponseData(response.data);
+                    navigate('/');
+                }
+            } catch (err) {
+                if (err instanceof AxiosError && err.response) {
+                    setError(err.response.data.error);
+                }
+
+                if (err instanceof Error) {
+                    setError(err.message);
+                }
             }
         } else {
             setError('Please fill in all the fields!');

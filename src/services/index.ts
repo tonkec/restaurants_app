@@ -1,7 +1,8 @@
-export const setUserInLocalStorageWithResponseData = (response: any) => {
-    const loginToken = response.data.token;
-    const user = response.data.user;
-    setUserInLocalStorage(loginToken, user);
+export const setUserInLocalStorageWithResponseData = (data: {
+    token: string;
+}) => {
+    const loginToken = data.token;
+    setUserInLocalStorage(loginToken);
     return true;
 };
 
@@ -14,7 +15,7 @@ export const getUserFromLocalStorage = () => {
     return null;
 };
 
-export const setUserInLocalStorage = (loginToken: string, user: any) => {
+export const setUserInLocalStorage = (loginToken: string) => {
     localStorage.setItem('userLoginToken', JSON.stringify(loginToken));
 };
 

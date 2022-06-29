@@ -17,7 +17,7 @@ const Restaurant: React.FC<RestaurantProps> = (props: RestaurantProps) => (
             {' '}
             {props.name} | {props.type}
         </h2>
-        <p className="mb-4"> {props.description}</p>
+        <p className="mb-4 line-clamp-5"> {props.description} </p>
         <img src={props.logo} alt="logo" width={150} height={150} />
     </div>
 );

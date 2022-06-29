@@ -13,7 +13,7 @@ interface Option {
 const Restaurants = () => {
     const [restaurants, setRestaurants] = useState<RestaurantModel[]>([]);
     const [isModalShown, setIsModalShown] = useState(false);
-    const [modalData, setModalData] = useState<any | null>(null);
+    const [modalData, setModalData] = useState<RestaurantModel | null>(null);
     const [selectedOption, setSelectedOption] = useState<Option | null>(null);
 
     const options: Option[] = [
@@ -82,11 +82,13 @@ const Restaurants = () => {
                 ? renderRestaurants(filteredRestaurants)
                 : renderRestaurants(restaurants)}
 
-            <Modal
-                isModalShown={isModalShown}
-                data={modalData}
-                close={modalClose}
-            />
+            {modalData && (
+                <Modal
+                    isModalShown={isModalShown}
+                    data={modalData}
+                    close={modalClose}
+                />
+            )}
         </>
     );
 };

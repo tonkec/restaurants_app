@@ -1,4 +1,6 @@
 import axios from 'axios';
-export const axiosInstance = axios.create({
-    baseURL: 'https://reqres.in',
-});
+export const createAxionsInstance = url => {
+    return axios.create({
+        baseURL: url,
+    });
+};
