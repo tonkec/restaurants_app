@@ -1,5 +1,4 @@
 import { clearLocalStorage } from '../../services';
-import { useState } from 'react';
 import useMediaQuery from '../../hooks/useMediaQuery';
 
 const Sidebar = () => {
