@@ -15,6 +15,7 @@ const Restaurants = () => {
     const [isModalShown, setIsModalShown] = useState(false);
     const [modalData, setModalData] = useState<RestaurantModel | null>(null);
     const [selectedOption, setSelectedOption] = useState<Option | null>(null);
+    const [isLoading, setIsLoading] = useState(true);
 
     const options: Option[] = [
         // unique array of restaurant types
@@ -35,6 +36,7 @@ const Restaurants = () => {
         const getAllRestaurantsFromApi = async () => {
             const response = await getAllRestaurants();
             setRestaurants(response);
+            setIsLoading(false);
         };
         getAllRestaurantsFromApi();
     }, [setRestaurants]);
@@ -66,28 +68,34 @@ const Restaurants = () => {
 
     return (
         <>
-            <Select
-                options={options}
-                onChange={onSelectChange}
-                value={selectedOption}
-            />
-            <button
-                onClick={handleClear}
-                className="border-2 border-black inline-block px-4 py-2 mt-6 text-sm"
-            >
-                Reset selection
-            </button>
+            {isLoading ? (
+                <h1>Fetching restaurants...</h1>
+            ) : (
+                <>
+                    <Select
+                        options={options}
+                        onChange={onSelectChange}
+                        value={selectedOption}
+                    />
+                    <button
+                        onClick={handleClear}
+                        className="border-2 border-black inline-block px-4 py-2 mt-6 text-sm"
+                    >
+                        Reset selection
+                    </button>
 
-            {selectedOption !== null
-                ? renderRestaurants(filteredRestaurants)
-                : renderRestaurants(restaurants)}
+                    {selectedOption !== null
+                        ? renderRestaurants(filteredRestaurants)
+                        : renderRestaurants(restaurants)}
 
-            {modalData && (
-                <Modal
-                    isModalShown={isModalShown}
-                    data={modalData}
-                    close={modalClose}
-                />
+                    {modalData && (
+                        <Modal
+                            isModalShown={isModalShown}
+                            data={modalData}
+                            close={modalClose}
+                        />
+                    )}
+                </>
             )}
         </>
     );
