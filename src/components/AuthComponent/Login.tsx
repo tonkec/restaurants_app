@@ -1,11 +1,7 @@
-import { FormEvent, useState, ChangeEvent, useEffect } from 'react';
-import {
-    setUserInLocalStorageWithResponseData,
-    getUserFromLocalStorage,
-} from '../../services';
+import { FormEvent, useState, ChangeEvent } from 'react';
+import { setUserInLocalStorageWithResponseData } from '../../services';
 import { loginUser } from '../../api/users/authentication';
-import { useNavigate } from 'react-router-dom';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { AxiosError } from 'axios';
 
 const Login = () => {

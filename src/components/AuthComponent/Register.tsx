@@ -1,8 +1,5 @@
-import { FormEvent, useState, ChangeEvent, useEffect } from 'react';
-import {
-    setUserInLocalStorageWithResponseData,
-    getUserFromLocalStorage,
-} from '../../services';
+import { FormEvent, useState, ChangeEvent } from 'react';
+import { setUserInLocalStorageWithResponseData } from '../../services';
 import { createNewUser } from '../../api/users/authentication';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
