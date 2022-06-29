@@ -22,6 +22,8 @@
         [x] show list of restaurants
         [x] modal
 -   [x] filters
--   [] validations in the Form.tsx
+-   [x] validations in the Form.tsx
 -   [] refactor Restaurants component
 -   [] log out
+-   [] truncate description
+-   [] openning hours

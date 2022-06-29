@@ -48,6 +48,8 @@ const Restaurants = () => {
                 key={restaurant.uid}
                 name={restaurant.name}
                 logo={restaurant.logo}
+                type={restaurant.type}
+                description={restaurant.description}
                 onClick={() => {
                     setModalData(restaurant);
                     setIsModalShown(true);
@@ -63,15 +65,23 @@ const Restaurants = () => {
                 onChange={onSelectChange}
                 defaultValue={selectedOption}
             />
-            <button onClick={handleClear}>Clear Value</button>
-            {filteredRestaurants.length > 0
-                ? renderRestaurants(filteredRestaurants)
-                : renderRestaurants(restaurants)}
-            <Modal
-                isModalShown={isModalShown}
-                data={modalData}
-                close={modalClose}
-            />
+            <button
+                onClick={handleClear}
+                className="border-2 border-black inline-block px-4 py-2 mt-6 text-sm"
+            >
+                Reset selection
+            </button>
+
+            <div className="">
+                {filteredRestaurants.length > 0
+                    ? renderRestaurants(filteredRestaurants)
+                    : renderRestaurants(restaurants)}
+                <Modal
+                    isModalShown={isModalShown}
+                    data={modalData}
+                    close={modalClose}
+                />
+            </div>
         </>
     );
 };

@@ -2,7 +2,7 @@ import { FormEvent, useState, ChangeEvent } from 'react';
 import { setUserInLocalStorageWithResponseData } from '../../services';
 import { loginUser, createNewUser } from '../../api/users/authentication';
 import { useNavigate } from 'react-router-dom';
-
+import { Link } from 'react-router-dom';
 interface FormProps {
     url: string;
 }
@@ -10,7 +10,7 @@ interface FormProps {
 const Form: React.FC<FormProps> = (props: FormProps) => {
     const navigate = useNavigate();
     const { url } = props;
-    const [error, setError] = useState(null);
+    const [error, setError] = useState<any | null>(null);
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
     const onEmailChange = (e: ChangeEvent<HTMLInputElement>) => {
@@ -24,40 +24,67 @@ const Form: React.FC<FormProps> = (props: FormProps) => {
     const onFormSubmit = async (e: FormEvent<HTMLFormElement>) => {
         e.preventDefault();
         let response;
-        try {
-            if (url === '/login') {
-                response = await loginUser({ email, password });
-            }
+        if (email.trim() !== '' && password.trim() !== '') {
+            try {
+                if (url === '/login') {
+                    response = await loginUser({ email, password });
+                }
 
-            if (url === '/signup') {
-                response = await createNewUser({ email, password });
+                if (url === '/signup') {
+                    response = await createNewUser({ email, password });
+                }
+                setUserInLocalStorageWithResponseData(response);
+                navigate('/');
+            } catch (err: any) {
+                setError(err.response.data.error);
             }
-            setUserInLocalStorageWithResponseData(response);
-            navigate('/');
-        } catch (err: any) {
-            setError(err.error);
+        } else {
+            setError('Please fill in all the fields!');
         }
     };
     return (
-        <>
-            {error && error}
+        <div className="relative top-1/2 -translate-y-1/2">
+            {error && (
+                <p className="bg-red-400 text-white px-4 py-2 mb-6">{error}</p>
+            )}
             <form onSubmit={onFormSubmit}>
                 <input
                     type="email"
-                    placeholder="email"
+                    placeholder="Email"
                     onChange={onEmailChange}
+                    className="bg-white block border-black border-b-2 w-full text-xl text-black py-4 focus:outline-none"
                 />
                 <input
                     type="password"
-                    placeholder="password"
+                    placeholder="Password"
                     onChange={onPasswordChange}
+                    className="bg-white block border-black border-b-2 w-full text-xl text-black py-4 focus:outline-none"
                 />
+                {url === '/login' && (
+                    <p className="mt-2">
+                        You can login with email: <b>eve.holt@reqres.in </b>
+                        and passowrd: <b>pistol</b>
+                    </p>
+                )}
+                {url === '/signup' && (
+                    <p className="mt-2">
+                        You can register with email: <b>eve.holt@reqres.in </b>
+                        and passowrd: <b>cityslicka</b>
+                    </p>
+                )}
                 <input
                     type="submit"
-                    value={url === '/login' ? 'login' : 'sign up'}
+                    value={url === '/login' ? 'Login' : 'Sign up'}
+                    className="bg-orange px-4 py-2 text-white mt-6 inline-block border-2 border-transparent mr-6"
                 />
+
+                {url === '/login' ? (
+                    <Link to="/signup">Sign up</Link>
+                ) : (
+                    <Link to="/login">Log in </Link>
+                )}
             </form>
-        </>
+        </div>
     );
 };
 
