@@ -1,5 +1,8 @@
-import { FormEvent, useState, ChangeEvent } from 'react';
-import { setUserInLocalStorageWithResponseData } from '../../services';
+import { FormEvent, useState, ChangeEvent, useEffect } from 'react';
+import {
+    setUserInLocalStorageWithResponseData,
+    getUserFromLocalStorage,
+} from '../../services';
 import { loginUser, createNewUser } from '../../api/users/authentication';
 import { useNavigate } from 'react-router-dom';
 import { Link } from 'react-router-dom';
@@ -42,6 +45,13 @@ const Form: React.FC<FormProps> = (props: FormProps) => {
             setError('Please fill in all the fields!');
         }
     };
+
+    useEffect(() => {
+        const user = getUserFromLocalStorage();
+        if (user) {
+            navigate('/');
+        }
+    });
     return (
         <div className="relative top-1/2 -translate-y-1/2">
             {error && (
