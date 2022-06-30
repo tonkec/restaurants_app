@@ -1,10 +1,19 @@
 body,
-html,
-#root,
-main {
+html {
     padding: 0;
     margin: 0;
     height: 100%;
+}
+
+body {
+    min-height: 100%;
+}
+
+main {
+    height: auto;
+}
+
+html {
     @apply bg-white;
 }
 
