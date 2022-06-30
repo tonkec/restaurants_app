@@ -26,9 +26,9 @@
 -   [x] refactor Restaurants component
 -   [x] log out
 -   [x] truncate description
--   [] openning hours
+-   [x] openning hours
 -   [x] refactor routes
 -   [x] do I need to check localstorage in Homepage.tsx
--   [] page dissappears on referesh on netlify
+-   [x] page dissappears on referesh on netlify
 -   [] fix all imports - Friday
--   [] height of HTML&Body
+-   [x] height of HTML&Body
