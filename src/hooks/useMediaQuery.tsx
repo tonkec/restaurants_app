@@ -1,3 +1,4 @@
+// https://fireship.io/snippets/use-media-query-hook/
 import { useState, useEffect } from 'react';
 
 const useMediaQuery = (query: string) => {
