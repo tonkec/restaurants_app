@@ -18,7 +18,7 @@ export interface RestaurantModel {
     >;
 }
 
-type Day =
+export type Day =
     | 'monday'
     | 'tuesday'
     | 'wednesday'

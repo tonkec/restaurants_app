@@ -1,5 +1,5 @@
 import { RestaurantModel } from '../../models/Restaurant';
-
+import RestaurantDate from '../Restaurants/RestaurantDate';
 interface ModalProps {
     isModalShown: boolean;
     close: () => void;
@@ -15,6 +15,7 @@ const Modal = ({ isModalShown, close, data }: ModalProps) => {
             <p className="cursor-pointer" onClick={close}>
                 Close
             </p>
+            <RestaurantDate restaurantDate={data.hours} />
             <h2 className="text-xl font-bold mb-6">{data.name}</h2>
             <img src={data.logo} alt="logo" width={500} height={500} />
             <p className="mt-4">{data.review}</p>
