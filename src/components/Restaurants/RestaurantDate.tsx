@@ -8,12 +8,10 @@ const RestaurantDate = ({ restaurantDate }: any) => {
         .toLowerCase() as Day;
     const currentHours = restaurantDate[currentDay];
     return (
-        <>
-            <p>
-                {currentHours.opens_at} - {currentHours.closes_at} -{' '}
-                {currentHours.is_closed ? 'closed' : 'open'}
-            </p>
-        </>
+        <p>
+            {currentHours.opens_at} - {currentHours.closes_at} -{' '}
+            {currentHours.is_closed ? 'closed' : 'open'}
+        </p>
     );
 };
 
