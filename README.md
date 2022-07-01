@@ -8,7 +8,7 @@ This is a fake app made as a test project for one company I really like :)
 2. cd into the project
 3. run `npm install`
 4. run `npm start`
-5. go to `localhost`
+5. go to `localhost:3000`
 
 ### What technologies are used in this app?
 
@@ -19,6 +19,7 @@ This is a fake app made as a test project for one company I really like :)
 5. typescript
 6. netlify
 7. create react app
+8. moment
 
 ### How did I manage the tasks?
 
